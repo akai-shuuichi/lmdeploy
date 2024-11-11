@@ -989,12 +989,8 @@ class Qwen2halfChat(BaseChatTemplate):
         Args:
             model_path (str): the model path used for matching.
         """
-        if 'qwen' in model_path.lower() and 'qwen2.5' not in model_path.lower():
-            return 'qwen'
-        if 'minicpm-v-2_6' in model_path.lower():
-            return 'minicpmv-2d6'
-        if 'minicpm3-' in model_path.lower():
-            return 'minicpm3'
+        if 'qwen2.5' in model_path.lower():
+            return 'qwen2d5'
 
 @MODELS.register_module(name='minicpmv-2d6')
 @MODELS.register_module(name='minicpm3')
@@ -1031,8 +1027,12 @@ class Qwen7BChat(BaseChatTemplate):
         Args:
             model_path (str): the model path used for matching.
         """
-        if 'qwen2.5' in model_path.lower():
-            return 'qwen2d5'
+        if 'qwen' in model_path.lower() and 'qwen2.5' not in model_path.lower():
+            return 'qwen'
+        if 'minicpm-v-2_6' in model_path.lower():
+            return 'minicpmv-2d6'
+        if 'minicpm3-' in model_path.lower():
+            return 'minicpm3'
 
 
 @MODELS.register_module(name='codellama')
